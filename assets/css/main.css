@@ -1,0 +1,8 @@
+.DingTalk {
+  font-family: 'DingTalk';
+}
+
+@font-face {
+  font-family: 'DingTalk';
+  src: url(../ttf/dingtalk.ttf);
+}
