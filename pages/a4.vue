@@ -254,7 +254,7 @@ const _pageInfo = {
   title: "人生A4纸",
   description:
     "A4纸人生表格是2016年的网络流行语，该词语的解释为：生不过短短的900个月。在一张A4纸画一个30×30的表格，就足够了。每过一个月，在一个格子里涂掉，全部人生就在这张纸上。",
-  image: "https://xxyu.online/og-image/a4-og-image.png",
+  image: "/og-image/a4-og-image.png",
 };
 
 renderSeo(_pageInfo);

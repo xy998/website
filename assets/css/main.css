@@ -1,8 +1,9 @@
 .DingTalk {
   font-family: 'DingTalk';
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'DingTalk';
-  src: url(../ttf/dingtalk.ttf);
+  src: url(../font/InterVariable.woff2);
 }

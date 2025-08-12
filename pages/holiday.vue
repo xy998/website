@@ -2,25 +2,34 @@
   <div class="home min-h-[calc(100vh-var(--header-height))]">
     <CountdownSnowfall />
     <div class="container">
-      <div class="title">{{ nextData?.name }}</div>
-      <div class="countdown-container">
-      <div class="time" v-if="days">
-        <h1>{{ days }}</h1>
-        <small>days</small>
+      <div class="title">
+        <span v-if="nextData?.isCurrent">{{ nextData?.name }} 快乐！</span>
+        <span v-else>{{ nextData?.name }}</span>
       </div>
-      <div class="time">
-        <h1>{{ hours }}</h1>
-        <small>hours</small>
+      <div class="countdown-container" v-if="!nextData?.isCurrent">
+        <div class="time" v-if="days">
+          <h1>{{ days }}</h1>
+          <small>days</small>
+        </div>
+        <div class="time">
+          <h1>{{ hours }}</h1>
+          <small>hours</small>
+        </div>
+        <div class="time">
+          <h1>{{ minutes }}</h1>
+          <small>minutes</small>
+        </div>
+        <div class="time seconds">
+          <h1>{{ seconds }}</h1>
+          <small>seconds</small>
+        </div>
       </div>
-      <div class="time">
-        <h1>{{ minutes }}</h1>
-        <small>minutes</small>
+      <div class="celebration" v-else>
+        <div class="celebration-text">
+          <h2>🎉 正在享受假期 🎉</h2>
+          <p>好好休息，享受美好时光！</p>
+        </div>
       </div>
-      <div class="time seconds">
-        <h1>{{ seconds }}</h1>
-        <small>seconds</small>
-      </div>
-    </div>
     </div>
   </div>
 </template>
@@ -36,22 +45,30 @@ const seconds = ref("00");
 const nextData = getNextHoliday()
 
 const updateCountdown = () => {
-  const time = getTimeDifference(nextData?.date!);
-  days.value = time.days;
-  hours.value = time.hours;
-  minutes.value = time.minutes;
-  seconds.value = time.seconds;
+  // 只有在非节假日期间才更新倒计时
+  if (!nextData?.isCurrent) {
+    const time = getTimeDifference(nextData?.date!);
+    days.value = time.days;
+    hours.value = time.hours;
+    minutes.value = time.minutes;
+    seconds.value = time.seconds;
+  }
 };
 
 let countdownTimer: ReturnType<typeof setInterval>;
 
 onMounted(() => {
   updateCountdown()
-  countdownTimer = setInterval(updateCountdown, 1000);
+  // 只有在非节假日期间才启动定时器
+  if (!nextData?.isCurrent) {
+    countdownTimer = setInterval(updateCountdown, 1000);
+  }
 });
 
 onUnmounted(() => {
-  clearInterval(countdownTimer);
+  if (countdownTimer) {
+    clearInterval(countdownTimer);
+  }
 });
 
 import renderSeo from "@/utils/renderSeo";
@@ -59,7 +76,7 @@ import renderSeo from "@/utils/renderSeo";
 const _pageInfo = {
   title: "倒数日",
   description: "距离下一个法定节假日的天数。",
-  image: "https://xxyu.online/og-image/holiday-og-imgage.png",
+  image: "/og-image/holiday-og-imgage.png",
 };
 
 renderSeo(_pageInfo);
@@ -81,9 +98,11 @@ renderSeo(_pageInfo);
   margin-top: -100px;
 
   .title {
-    text-align: left;
+    text-align: center;
     color: hsl(var(--primary));
     font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 2rem;
   }
 }
 
@@ -91,6 +110,27 @@ renderSeo(_pageInfo);
   position: relative;
   display: flex;
   z-index: 1;
+}
+
+.celebration {
+  text-align: center;
+  z-index: 1;
+  
+  .celebration-text {
+    h2 {
+      font-size: 2.5em;
+      color: hsl(var(--primary));
+      font-weight: bold;
+      margin-bottom: 1rem;
+      animation: bounce 2s infinite;
+    }
+    
+    p {
+      font-size: 1.2em;
+      color: hsl(var(--muted-foreground));
+      margin: 0;
+    }
+  }
 }
 
 .time {
@@ -130,6 +170,18 @@ renderSeo(_pageInfo);
 
   100% {
     background-position: 200%;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }
 </style>

@@ -6,5 +6,9 @@
     "shadcn",
     "vueuse"
   ],
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "i18n-ally.localesPaths": [
+    "i18n",
+    "i18n/locales"
+  ]
 }

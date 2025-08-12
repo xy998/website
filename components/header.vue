@@ -11,7 +11,7 @@
       <div class="mr-2 text-base flex-shrink-0 md:hidden">
         <Sheet :open="open" v-model="open">
           <SheetTrigger>
-            <Icon icon="line-md:menu-unfold-left" @click="open = true" />
+            <MenuLeft @click="open = true" />
           </SheetTrigger>
           <SheetContent side="left">
             <SheetHeader>
@@ -54,14 +54,8 @@
         <div
           class="cursor-pointer rounded-md hover:bg-muted transition-all p-2"
         >
-          <Icon
-            @click="mode === 'light' ? (mode = 'dark') : (mode = 'light')"
-            :icon="
-              mode === 'dark'
-                ? 'line-md:sunny-outline-to-moon-loop-transition'
-                : 'line-md:sun-rising-loop'
-            "
-          />
+          <MenuMoon v-if="mode === 'dark'" @click="mode = 'light'" />
+          <MenuSunny v-else @click="mode = 'dark'" />
         </div>
 
         <div
@@ -95,6 +89,9 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import Logo from "@/assets/svg/logo.svg";
+import MenuLeft from "@/components/svg/icon-menu-left.vue";
+import MenuMoon from "@/components/svg/icon-menu-moon.vue";
+import MenuSunny from "@/components/svg/icon-menu-sunny.vue";
 
 import {
   Sheet,
@@ -159,20 +156,20 @@ const navList = [
       i18nKey: "route.a4",
     },
   },
-  // {
-  //   path: "/10000",
-  //   name: "10000",
-  //   meta: {
-  //     title: "10000",
-  //     i18nKey: "route.10000",
-  //   },
-  // },
   {
     path: "/holiday",
     name: "holiday",
     meta: {
       title: "holiday",
       i18nKey: "route.holiday",
+    },
+  },
+  {
+    path: "/drink",
+    name: "drink",
+    meta: {
+      title: "drink",
+      i18nKey: "route.drink",
     },
   },
 ];

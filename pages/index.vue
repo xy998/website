@@ -100,7 +100,7 @@ import renderSeo from "@/utils/renderSeo";
 const _pageInfo = {
   title: baseInfo.title,
   description: baseInfo.description,
-  image: "https://xxyu.online/og-image/index-og-image.png",
+  image: "/og-image/index-og-image.png",
 };
 renderSeo(_pageInfo)
 </script>

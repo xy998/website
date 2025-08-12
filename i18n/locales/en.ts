@@ -1,9 +1,10 @@
 export default {
   route: {
-    xxyu: 'home',
+    xxyu: 'Home',
     a4: 'a4',
     '10000': '10000',
-    holiday: 'Countdown day'
+    holiday: 'Countdown day',
+    drink: 'Drink'
   },
   system: {
     lang: 'Switch Language',

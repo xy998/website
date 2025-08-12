@@ -3,7 +3,8 @@ export default {
     xxyu: '首页',
     a4: 'a4',
     '10000': '10000',
-    holiday: '倒数日'
+    holiday: '倒数日',
+    drink: '酒量'
   },
   system: {
     lang: '切换语言',

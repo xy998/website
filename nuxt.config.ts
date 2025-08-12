@@ -12,14 +12,35 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
   ],
   site: {
-    url: "https://xxyu.online",
+    url: baseInfo.site,
     name: baseInfo.title,
   },
   sitemap: {
     urls: [
-      "https://xxyu.online",
-      "https://xxyu.online/a4",
-      "https://xxyu.online/holiday",
+      {
+        loc: baseInfo.site,
+        lastmod: new Date().toISOString(),
+        changefreq: "weekly",
+        priority: 1,
+      },
+      {
+        loc: `${baseInfo.site}/a4`,
+        lastmod: new Date().toISOString(),
+        changefreq: "monthly",
+        priority: 0.8,
+      },
+      {
+        loc: `${baseInfo.site}/holiday`,
+        lastmod: new Date().toISOString(),
+        changefreq: "monthly",
+        priority: 0.5,
+      },
+      {
+        loc: `${baseInfo.site}/drink`,
+        lastmod: new Date().toISOString(),
+        changefreq: "monthly",
+        priority: 0.5,
+      },
     ],
   },
   css: [

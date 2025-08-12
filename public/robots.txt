@@ -1,5 +1,8 @@
-
 User-agent: *
-Disallow:
+Allow: /
 
-sitemap: https://xxyu.online/sitemap.xml
+# 网站地图
+Sitemap: https://www.xy998.uk/sitemap.xml
+
+# 爬取延迟（可选，单位为秒）
+Crawl-delay: 1
