@@ -5,7 +5,7 @@
         白酒啤酒换算器
       </h1>
 
-      <div class="bg-muted p-4 rounded-lg text-center" ref="resultRef">
+      <div class="p-4 rounded-lg text-center" ref="resultRef">
         <div class="text-sm text-muted-foreground mb-2">当前换算结果：</div>
         <div class="text-4xl font-bold text-primary">
           <span v-animate-number="{
@@ -73,7 +73,7 @@
       </div>
 
       <!-- 计算逻辑 -->
-      <div class="bg-muted p-4 rounded-lg">
+      <div class="p-4 rounded-lg">
         <h3 class="text-lg font-semibold mb-3 text-foreground">计算方法逻辑</h3>
         <div class="text-sm space-y-3">
           <p>1. 计算白酒的纯酒精量：<br>
@@ -85,7 +85,7 @@
       </div>
 
 
-      <div class="bg-muted p-4 rounded-lg">
+      <div class="p-4 rounded-lg">
         <h3 class="text-lg font-semibold mb-3 text-foreground">考虑因素</h3>
         <p class="text-sm text-muted-foreground mb-3">
           为了确保白酒和啤酒饮酒的公平性，我们考虑以下因素：
@@ -217,6 +217,7 @@ const _pageInfo = {
   description:
     "白酒啤酒换算器 - 计算白酒和啤酒的等效酒精量",
   image: "/og-image/drink-og-image.png",
+  keywords: "白酒啤酒换算器,白酒啤酒,啤酒换算器,白酒换算器,啤酒换算,白酒换算,啤酒换算器,白酒换算器,啤酒换算,白酒换算",
 };
 
 renderSeo(_pageInfo);

@@ -77,6 +77,7 @@ const _pageInfo = {
   title: "倒数日",
   description: "距离下一个法定节假日的天数。",
   image: "/og-image/holiday-og-imgage.png",
+  keywords: "倒数日,法定节假日,假期倒数,假期天数,假期倒计时,假期天数计算,假期倒数计算,假期天数计算器,假期倒数计算器",
 };
 
 renderSeo(_pageInfo);

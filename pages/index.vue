@@ -26,7 +26,7 @@
             </li>
             <li class="flex items-center gap-2 mb-2">
               <IconEmail class="text-2xl" />
-              <span class="text-muted-foreground">{{ baseInfo.email }}</span>
+              <SmokeCode :text="baseInfo.email" :width="100" />
             </li>
             <li class="flex items-center gap-2">
               <IconGithubVue class="text-2xl" /><NuxtLink
@@ -70,9 +70,11 @@ import IconNuxt from "@/assets/svg/icon-nuxt.svg";
 import IconNginx from "@/assets/svg/icon-nginx.svg";
 import IconPm2 from "@/assets/svg/icon-pm2.svg";
 import IconTailwind from "@/assets/svg/icon-tailwind.svg";
+import IconFlutter from "@/assets/svg/icon-flutter.svg";
 
 import IconEmail from "@/components/svg/icon-email.vue";
 import IconGithubVue from "@/components/svg/icon-github.vue";
+import SmokeCode from "@/components/smoke-code.vue";
 
 import AuthAvatar from "@/assets/image/avatar.jpg";
 
@@ -93,6 +95,7 @@ const tags = [
   IconNginx,
   IconPm2,
   IconTailwind,
+  IconFlutter,
 ];
 
 import renderSeo from "@/utils/renderSeo";
@@ -101,6 +104,7 @@ const _pageInfo = {
   title: baseInfo.title,
   description: baseInfo.description,
   image: "/og-image/index-og-image.png",
+  keywords: "xxyu,xxyu's,xxyu's 博客,xxyu's 网站,个人网站"
 };
 renderSeo(_pageInfo)
 </script>
