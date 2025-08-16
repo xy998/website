@@ -7,7 +7,9 @@ interface Params {
 
 const baseInfo = useBaseInfo();
 export default function renderSeo(params: Params) {
-  let obj = {} as any;
+  let obj = {
+    ogType: "website",
+  } as any;
   if (params.title) {
     if (params.title === baseInfo.title) {
       obj.title = baseInfo.title;
@@ -21,7 +23,10 @@ export default function renderSeo(params: Params) {
     obj.ogDescription = params.description;
   }
   if (params.image) {
-    obj.ogImage = params.image;
+    obj.ogImage = 'https://www.xy998.uk/og-image' + params.image;
+  }
+  if (params.keywords) {
+    obj.keywords = params.keywords;
   }
   return useSeoMeta(obj);
 }

@@ -41,6 +41,12 @@ export default defineNuxtConfig({
         changefreq: "monthly",
         priority: 0.5,
       },
+      {
+        loc: `${baseInfo.site}/404`,
+        lastmod: new Date().toISOString(),
+        changefreq: "monthly",
+        priority: 0.1,
+      },
     ],
   },
   css: [

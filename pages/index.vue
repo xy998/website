@@ -26,7 +26,7 @@
             </li>
             <li class="flex items-center gap-2 mb-2">
               <IconEmail class="text-2xl" />
-              <SmokeCode :text="baseInfo.email" :width="100" />
+              <SmokeCode :text="baseInfo.email" :width="167" />
             </li>
             <li class="flex items-center gap-2">
               <IconGithubVue class="text-2xl" /><NuxtLink
