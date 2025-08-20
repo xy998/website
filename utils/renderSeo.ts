@@ -23,7 +23,7 @@ export default function renderSeo(params: Params) {
     obj.ogDescription = params.description;
   }
   if (params.image) {
-    obj.ogImage = 'https://www.xy998.uk/og-image' + params.image;
+    obj.ogImage = params.image;
   }
   if (params.keywords) {
     obj.keywords = params.keywords;

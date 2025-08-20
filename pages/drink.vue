@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen bg-background lg:p-8">
-    <div class="mx-auto bg-card rounded-xl shadow-lg lg:p-6 space-y-6">
+  <div class="min-h-screen lg:p-8 max-w-screen-md">
+    <div class="mx-auto rounded-xl shadow-lg lg:p-6 space-y-6">
       <h1 class="text-3xl font-bold text-center text-foreground mb-6">
         白酒啤酒换算器
       </h1>
